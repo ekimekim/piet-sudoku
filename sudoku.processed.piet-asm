@@ -1,0 +1,197 @@
+# input
+	push 81
+	input_loop:
+	push 1
+	inchar
+	# char to int
+		push 48
+		subtract
+		duplicate
+		push 9
+		greater
+		jnz error
+		duplicate
+		push 1
+		roll 1 2
+		greater
+		jnz error
+	# char to int return
+	roll 1 2
+	pop
+	# to exponent
+		push 1
+		jmp exponent_loop
+		exponent_next:
+		roll 1 2
+		exponent_loop:
+		push 2
+		multiply
+		roll 1 2
+		push 1
+		subtract
+		duplicate
+		jnz exponent_next
+		pop
+	# to exponent return
+	roll 1 2
+	push 1
+	subtract
+	duplicate
+	jnz input_loop
+	push 1
+	subtract
+	inchar
+	push 1
+	add
+	jnz error
+# input return
+# push data
+	push 25
+	duplicate
+	not
+	roll 1 2
+	push_data_loop:
+	roll 1 2
+	duplicate
+	roll 2 3
+	push 1
+	subtract
+	duplicate
+	jnz push_data_loop
+# push data return
+push 81
+main_loop:
+# process
+	roll 28 29
+	# process_part row
+		duplicate
+		roll 2 3
+		duplicate
+		roll 1 4
+		push 9
+		divide
+		push 20
+		add
+		# bury
+			duplicate
+			add
+			duplicate
+			push 1
+			add
+			roll 1 2
+			roll
+			roll 2 3
+			multiply
+			roll 1 2
+			push 2
+			add
+			push 1
+			roll
+		# bury return
+	# process_part row return
+	# process_part col
+		duplicate
+		roll 2 3
+		duplicate
+		roll 1 4
+		push 9
+		modulus
+		push 11
+		add
+		# bury
+			duplicate
+			add
+			duplicate
+			push 1
+			add
+			roll 1 2
+			roll
+			roll 2 3
+			multiply
+			roll 1 2
+			push 2
+			add
+			push 1
+			roll
+		# bury return
+	# process_part col return
+	# process_part cell
+		duplicate
+		roll 2 3
+		duplicate
+		roll 1 4
+		duplicate
+		push 27
+		divide
+		push 3
+		multiply
+		roll 1 2
+		push 9
+		modulus
+		push 3
+		divide
+		add
+		push 2
+		add
+		# bury
+			duplicate
+			add
+			duplicate
+			push 1
+			add
+			roll 1 2
+			roll
+			roll 2 3
+			multiply
+			roll 1 2
+			push 2
+			add
+			push 1
+			roll
+		# bury return
+	# process_part cell return
+# process return
+duplicate
+jnz main_loop
+pop
+# check data
+	push 1022
+	push 27
+	check_data_loop:
+	roll 1 3
+	duplicate
+	roll 1 4
+	subtract
+	duplicate
+	jnz check_data_exit
+	pop
+	push 1
+	subtract
+	jnz check_data_loop
+	check_data_exit:
+# check data return
+# output
+	jnz error
+	push 116 # t
+	outchar
+	push 114 # r
+	outchar
+	push 117 # u
+	outchar
+	push 101 # e
+	outchar
+	jmp output_exit
+	error:
+	push 102 # f
+	outchar
+	push 97 # a
+	outchar
+	push 108 # l
+	outchar
+	push 115 # s
+	outchar
+	push 101 # e
+	outchar
+	output_exit:
+# output return
+terminate
