@@ -68,9 +68,11 @@ main_loop:
 		roll 2 3
 		duplicate
 		roll 1 4
+		push 1
+		subtract
 		push 9
 		divide
-		push 20
+		push 21
 		add
 		# bury
 			duplicate
@@ -95,9 +97,11 @@ main_loop:
 		roll 2 3
 		duplicate
 		roll 1 4
+		push 1
+		subtract
 		push 9
 		modulus
-		push 11
+		push 12
 		add
 		# bury
 			duplicate
@@ -122,6 +126,8 @@ main_loop:
 		roll 2 3
 		duplicate
 		roll 1 4
+		push 1
+		subtract
 		duplicate
 		push 27
 		divide
@@ -133,7 +139,7 @@ main_loop:
 		push 3
 		divide
 		add
-		push 2
+		push 3
 		add
 		# bury
 			duplicate

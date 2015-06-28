@@ -65,21 +65,21 @@ process(): # [n data count] -> [data' (count-1)]
 	# take n and add to appropriate row, col, cell of data
 	roll(28, 29) # [n data count] -> [data count n]
 
-	# get row = count/9, index+18 to seek past cols, cells
+	# get row = count/9, index+19 to seek past cols, cells
 	process_part(
 		push 9
 		divide
-		push 20
+		push 21
 		add
 	)
-	# get col = count % 9, index+9 to seek past cells
+	# get col = count % 9, index+10 to seek past cells
 	process_part(
 		push 9
 		modulus
-		push 11
+		push 12
 		add
 	)
-	# get cell = count/27*3 + count % 9 / 3
+	# get cell = count/27*3 + count % 9 / 3, index+1 as it's 1-based
 	process_part(
 		duplicate
 		push 27
@@ -92,7 +92,7 @@ process(): # [n data count] -> [data' (count-1)]
 		push 3
 		divide
 		add # (count/27*3) + (count%9/3)
-		push 2
+		push 3
 		add
 	)
 	pop # [count n] -> [count]
@@ -100,12 +100,14 @@ process(): # [n data count] -> [data' (count-1)]
 	subtract
 
 process_part(code): # [data count n] -> [data' count n]
-	# code should [count] -> [index of target in data + 2]
+	# code should [count-1] -> [index of target in data + 2]
 	duplicate # [data count n n]
 	roll(2, 3) # [data n n count]
 	duplicate # [data n n count count]
 	roll(1, 4) # [data count n n count]
-	code # returns index in counter + n + count
+	push 1
+	subtract
+	code # [count-1] -> [index] : index in counter + 2 for (n, count)
 	bury() # [data count n n code(count)] -> [data' count n]
 
 bury(): # [y1 y2 y3 ... yn x n] -> [y1+x y2 y3 ... yn]
