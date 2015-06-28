@@ -108,8 +108,8 @@ process_part(code): # [data count n] -> [data' count n]
 	code # returns index in counter + n + count
 	bury() # [data count n n code(count)] -> [data' count n]
 
-bury(): # [y1 y2 y3 ... yn x n] -> [y1*x y2 y3 ... yn]
-	# multiplies x with the value on the stack n steps behind x,
+bury(): # [y1 y2 y3 ... yn x n] -> [y1+x y2 y3 ... yn]
+	# adds x to the value on the stack n steps behind x,
 	# then restores original stack order
 	duplicate
 	push 1
@@ -120,12 +120,12 @@ bury(): # [y1 y2 y3 ... yn x n] -> [y1*x y2 y3 ... yn]
 	roll(1,2) # [n n+2 n+1]
 	roll # roll(n,n+1): [y1 y2 y3 ... yn x n n+2 n+1] -> [y2 y3 ... yn x n y1]
 	roll(2,3) # [... n y1 x]
-	multiply # [... n y1*x]
-	roll(1, 2) # [... y1*x n]
+	multiply # [... n y1+x]
+	roll(1, 2) # [... y1+x n]
 	push 2
-	add # [... y1*x n+2]
-	push 1 # [... y1*x n+2 1]
-	roll # roll(1, n+2): [y2 y3 ... yn x n y1*x] -> [y1*x y2 y3 ... yn x n]
+	add # [... y1+x n+2]
+	push 1 # [... y1+x n+2 1]
+	roll # roll(1, n+2): [y2 y3 ... yn x n y1+x] -> [y1+x y2 y3 ... yn x n]
 	# qed
 
 # Create data, init'd to zeroes

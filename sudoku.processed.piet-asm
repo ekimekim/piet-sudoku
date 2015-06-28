@@ -74,6 +74,7 @@ main_loop:
 		add
 		# bury
 			duplicate
+			push 1
 			add
 			duplicate
 			push 1
@@ -81,7 +82,7 @@ main_loop:
 			roll 1 2
 			roll
 			roll 2 3
-			multiply
+			add
 			roll 1 2
 			push 2
 			add
@@ -100,6 +101,7 @@ main_loop:
 		add
 		# bury
 			duplicate
+			push 1
 			add
 			duplicate
 			push 1
@@ -107,7 +109,7 @@ main_loop:
 			roll 1 2
 			roll
 			roll 2 3
-			multiply
+			add
 			roll 1 2
 			push 2
 			add
@@ -135,6 +137,7 @@ main_loop:
 		add
 		# bury
 			duplicate
+			push 1
 			add
 			duplicate
 			push 1
@@ -142,7 +145,7 @@ main_loop:
 			roll 1 2
 			roll
 			roll 2 3
-			multiply
+			add
 			roll 1 2
 			push 2
 			add
