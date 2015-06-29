@@ -1,0 +1,5 @@
+Development workflow:
+	Create an annotated asm-ish pseudocode file .piet-asm
+	Manually strip it down into a very simple asm language file .processed.piet-asm
+	Run asm file with python script: piet_asm.py ASM_FILE INPUT to test and debug.
+	Manually craft image from asm file.
