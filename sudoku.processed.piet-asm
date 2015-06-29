@@ -173,6 +173,7 @@ pop
 	pop
 	push 1
 	subtract
+	duplicate
 	jnz check_data_loop
 	check_data_exit:
 # check data return

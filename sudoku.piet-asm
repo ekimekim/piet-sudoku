@@ -159,6 +159,7 @@ check_data(): # [data] -> ([... 0] or [... non-zero])
 		pop # -> [checkval count]
 		push 1
 		subtract
+		duplicate # -> [checkval count count]
 		jnz loop
 	exit: # [checkval 0] or [data checkval count value]
 
