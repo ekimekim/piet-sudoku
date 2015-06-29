@@ -168,9 +168,7 @@ pop
 	duplicate
 	roll 1 4
 	subtract
-	duplicate
 	jnz check_data_exit
-	pop
 	push 1
 	subtract
 	duplicate

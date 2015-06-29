@@ -153,15 +153,13 @@ check_data(): # [data] -> ([... 0] or [... non-zero])
 		roll(1,3) # [data' item checkval count] -> [data' count item checkval]
 		duplicate # -> [count item checkval checkval]
 		roll(1,4) # -> [checkval count item checkval]
-		subtract
-		duplicate # -> [checkval count value value]
-		jnz exit
-		pop # -> [checkval count]
+		subtract # -> [checkval count value]
+		jnz exit # -> [checkval count]
 		push 1
 		subtract
 		duplicate # -> [checkval count count]
 		jnz loop
-	exit: # [checkval 0] or [data checkval count value]
+	exit: # [checkval 0] or [data checkval count] where count > 0
 
 # Print "true" if 0, else "false"
 output(): # [(0 or non-zero)] -> []
