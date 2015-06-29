@@ -86,8 +86,6 @@ main_loop:
 			roll 2 3
 			add
 			roll 1 2
-			push 2
-			add
 			push 1
 			roll
 		# bury return
@@ -115,8 +113,6 @@ main_loop:
 			roll 2 3
 			add
 			roll 1 2
-			push 2
-			add
 			push 1
 			roll
 		# bury return
@@ -153,8 +149,6 @@ main_loop:
 			roll 2 3
 			add
 			roll 1 2
-			push 2
-			add
 			push 1
 			roll
 		# bury return
