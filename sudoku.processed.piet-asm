@@ -153,6 +153,9 @@ main_loop:
 			roll
 		# bury return
 	# process_part cell return
+	pop
+	push 1
+	subtract
 # process return
 duplicate
 jnz main_loop
